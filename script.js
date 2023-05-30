@@ -8,15 +8,17 @@ function getComputerChoice(choice) {
   return choice;
 }
 
+function getPlayerChoice(choice) {
+  choice = prompt("Choose Rock, Paper, or Scissor ?");
+  return choice;
+}
+
 // let playerSelection = prompt("Choose Rock, Paper, or Scissor ?");
 // const computerSelection = getComputerChoice();
 let playerPoints = 0;
 let computerPoints = 0;
 
-function playRound(
-  playerSelection = prompt("Choose Rock, Paper, or Scissor ?"),
-  computerSelection = getComputerChoice()
-) {
+function playRound(playerSelection, computerSelection) {
   let results;
   //   return `You Lose! ${playerSelection} beats ${computerSelection}`;
   if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
@@ -56,39 +58,17 @@ function playRound(
   return `Player Point: ${playerPoints} vs Computer Points: ${computerPoints}`;
 }
 
-console.log(
-  playRound(
-    (playerSelection = prompt("Choose Rock, Paper, or Scissor ?")),
-    (computerSelection = getComputerChoice())
-  )
-);
-console.log(
-  playRound(
-    (playerSelection = prompt("Choose Rock, Paper, or Scissor ?")),
-    (computerSelection = getComputerChoice())
-  )
-);
-console.log(
-  playRound(
-    (playerSelection = prompt("Choose Rock, Paper, or Scissor ?")),
-    (computerSelection = getComputerChoice())
-  )
-);
-console.log(
-  playRound(
-    (playerSelection = prompt("Choose Rock, Paper, or Scissor ?")),
-    (computerSelection = getComputerChoice())
-  )
-);
-console.log(
-  playRound(
-    (playerSelection = prompt("Choose Rock, Paper, or Scissor ?")),
-    (computerSelection = getComputerChoice())
-  )
-);
+function game() {
+  const round = 5;
+  for (let i = 0; i < round; i++) {
+    console.log(playRound(getPlayerChoice(), getComputerChoice()));
+  }
 
-if (playerPoints < computerPoints) {
-  console.log("Player Lose!");
-} else if (playerPoints > computerPoints) {
-  console.log("Player Win!");
-} else console.log("Draw");
+  if (playerPoints < computerPoints) {
+    console.log("Player Lose!");
+  } else if (playerPoints > computerPoints) {
+    console.log("Player Win!");
+  } else console.log("Draw");
+}
+
+game();
