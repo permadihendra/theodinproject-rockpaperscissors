@@ -62,6 +62,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Function game to loop the game
+// this function will call playRound() function with input from get getPlayerChoice() and getComputerChoice() function
 function game() {
   const round = 5;
   for (let i = 0; i < round; i++) {
