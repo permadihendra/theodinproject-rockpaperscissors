@@ -58,24 +58,7 @@ function playRound(playerSelection, computerSelection) {
     playerPoints = playerPoints + 1;
   }
 
-}
-
-  // Function return the PLayer and Computer Point
-  function checkPoints() {
-    if (playerPoints >= 5 && playerPoints > computerPoints) {
-      playerPoints = 0;
-      computerPoints = 0;
-      return alert("PLAYER WINS!");
-    } else if (computerPoints >= 5 && playerPoints < computerPoints) {
-      playerPoints = 0;
-      computerPoints = 0;
-      return alert("COMPUTER WINS");
-    }
-  }
-
-  return (
-    `Player Point: ${playerPoints} vs Computer Points: ${computerPoints}'
-  );
+  return `Player Point: ${playerPoints} vs Computer Points: ${computerPoints}`;
 }
 
 // Function game to loop the game
@@ -95,4 +78,16 @@ function game() {
 }
 
 // Start the game / call game() function
-game();
+
+// Function return the PLayer and Computer Point
+function checkPoints() {
+  if (playerPoints >= 5 && playerPoints > computerPoints) {
+    playerPoints = 0;
+    computerPoints = 0;
+    return alert("PLAYER WINS!");
+  } else if (computerPoints >= 5 && playerPoints < computerPoints) {
+    playerPoints = 0;
+    computerPoints = 0;
+    return alert("COMPUTER WINS");
+  }
+}
