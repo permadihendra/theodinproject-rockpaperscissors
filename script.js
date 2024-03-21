@@ -5,13 +5,14 @@
 
 // Function to get computer choice/ input
 function getComputerChoice(choice) {
-  choice = "Rock";
+  choice = "scissor";
   return choice;
 }
 
 // Function to get player choice/input with promt windows
 function getPlayerChoice(choice) {
-  choice = prompt("Choose Rock, Paper, or Scissor ?");
+  // choice = prompt("Choose Rock, Paper, or Scissor ?");
+  console.log("Player choice : " + choice);
   return choice;
 }
 
@@ -57,17 +58,33 @@ function playRound(playerSelection, computerSelection) {
     playerPoints = playerPoints + 1;
   }
 
+}
+
   // Function return the PLayer and Computer Point
-  return `Player Point: ${playerPoints} vs Computer Points: ${computerPoints}`;
+  function checkPoints() {
+    if (playerPoints >= 5 && playerPoints > computerPoints) {
+      playerPoints = 0;
+      computerPoints = 0;
+      return alert("PLAYER WINS!");
+    } else if (computerPoints >= 5 && playerPoints < computerPoints) {
+      playerPoints = 0;
+      computerPoints = 0;
+      return alert("COMPUTER WINS");
+    }
+  }
+
+  return (
+    `Player Point: ${playerPoints} vs Computer Points: ${computerPoints}'
+  );
 }
 
 // Function game to loop the game
 // this function will call playRound() function with input from get getPlayerChoice() and getComputerChoice() function
 function game() {
-  const round = 5;
-  for (let i = 0; i < round; i++) {
-    console.log(playRound(getPlayerChoice(), getComputerChoice()));
-  }
+  // const round = 5;
+  // for (let i = 0; i < round; i++) {
+  //   console.log(playRound(getPlayerChoice(), getComputerChoice()));
+  // }
 
   // this conditional to check who is the winner
   if (playerPoints < computerPoints) {

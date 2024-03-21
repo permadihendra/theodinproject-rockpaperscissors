@@ -8,5 +8,52 @@
 
     <script src="script.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div
+      style="display: flex; flex-direction: row; justify-content: space-between"
+    >
+      <h1>Player Selection</h1>
+      <button id="buttonRock">Rock</button>
+      <button id="buttonPaper">Paper</button>
+      <button id="buttonScissor">Scissor</button>
+    </div>
+
+    <div>
+      <ol id="results"></ol>
+    </div>
+    <script>
+      const resultsDisplay = document.getElementById("results");
+
+      // Button Rock
+      const btnRock = document.getElementById("buttonRock");
+      btnRock.addEventListener("click", () => {
+        const resultsHistory = document.createElement("li");
+
+        resultsHistory.textContent = playRound(
+          getPlayerChoice("rock"),
+          getComputerChoice()
+        );
+
+        resultsDisplay.appendChild(resultsHistory);
+      });
+
+      // Button Paper
+      const btnPaper = document.getElementById("buttonPaper");
+      btnPaper.addEventListener("click", () => {
+        const resultsHistory = document.createElement("li");
+
+        resultsHistory.textContent = playRound(
+          getPlayerChoice("paper"),
+          getComputerChoice()
+        );
+        resultsDisplay.appendChild(resultsHistory);
+      });
+
+      //Button Scissor
+      const btnScissor = document.getElementById("buttonScissor");
+      btnScissor.addEventListener("click", () => {
+        console.log(playRound(getPlayerChoice("scissor"), getComputerChoice()));
+      });
+    </script>
+  </body>
 </html>
